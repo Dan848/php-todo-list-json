@@ -36,9 +36,12 @@ createApp({
             this.toDoList.splice(index, 1);
         },
         doneItem(index){
-            this.toDoList[index].done ?
-            this.toDoList[index].done = "" :
-            this.toDoList[index].done = "1"
+            const taskIndex = {
+                doneIndex: `${index}`
+            };
+            axios.post(this.apiUrl, taskIndex, { headers : {"Content-Type": "multipart/form-data"}}).then((res)=> {
+                this.toDoList = res.data;
+            })
         }
     },
     mounted(){
