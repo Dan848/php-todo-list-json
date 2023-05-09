@@ -18,7 +18,6 @@ createApp({
             })
         },
         addItem(){
-            //Ci assicura
             if (this.addText && this.addText.length > 1 ) {
                 const addNewItem = {
                     newItem: {
