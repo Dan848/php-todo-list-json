@@ -1,0 +1,28 @@
+.pattern {
+    background-image: url(../img/pattern-duck.jpg);
+    background-size: 610px 220px;
+}
+
+.quack {
+    background-color: black;
+}
+
+.quack:hover {
+    background-color: #2d2d2d;
+}
+
+.duck-ico {
+    width: 25px;
+}
+
+h1,ul,h2 {
+    background-color: #783cd7;
+}
+
+h2 {
+    transform: translateY(9px);
+}
+
+.new-green {
+    background-color: #1b9925;
+}
