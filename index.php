@@ -38,11 +38,11 @@
         <div class="container mt-4">
             <div class="row justify-content-center">
                 <!-- TO DO LIST START -->
-                <ul v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === true)" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2">
+                <ul v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === 'yes')" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2">
                     <!-- TO DO Item List -->
-                    <li :class="'d-flex justify-content-between p-2 rounded-2 my-3' + ' '+ (item.done ? 'd-none' : 'bg-warning')" v-for="(item, index) in toDoList">
+                    <li :class="'d-flex justify-content-between p-2 rounded-2 my-3' + ' '+ (item.done === 'yes' ? 'd-none' : 'bg-warning')" v-for="(item, index) in toDoList">
                         <!-- TO DO Text Item -->
-                        <div :class="'text-capitalize d-flex align-items-center w-100 p-2 rounded-2 fw-medium me-3' + ' '+ (item.done ? 'bg-success-subtle' : 'bg-warning-subtle')">
+                        <div :class="'text-capitalize d-flex align-items-center w-100 p-2 rounded-2 fw-medium me-3' + ' '+ (item.done === 'yes' ? 'bg-success-subtle' : 'bg-warning-subtle')">
                             {{item.text}}
                         </div>
                         <!-- TO DO BUTTON CONTAINER -->
@@ -59,14 +59,14 @@
                 <h3 v-show="toDoList.length <= 0" class="bg-danger text-center rounded-2 p-2 text-black">Empty</h3>
 
                 <!-- DONE LIST TITLE -->
-                <div v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === '')" class="w-100 d-flex justify-content-center align-items-center mb-0"><h2 class="text-white py-2 px-4 rounded-top-4">{{doneListTitle}}</h2></div>
+                <div v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === 'no')" class="w-100 d-flex justify-content-center align-items-center mb-0"><h2 class="text-white py-2 px-4 rounded-top-4">{{doneListTitle}}</h2></div>
 
                 <!-- DONE LIST START -->
-                <ul v-show="toDoList.length > 0 && !toDoList.every((item) => item.done === '')" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2 mt-0">
+                <ul v-show="toDoList.length > 0 && !toDoList.every((item) => item.done === 'no')" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2 mt-0">
                     <!-- DONE Item List -->
-                    <li :class="'d-flex justify-content-between p-2 rounded-2 my-3' + ' '+ (item.done ? 'new-green' : 'd-none')" v-for="(item, index) in toDoList">
+                    <li :class="'d-flex justify-content-between p-2 rounded-2 my-3' + ' '+ (item.done === 'yes' ? 'new-green' : 'd-none')" v-for="(item, index) in toDoList">
                         <!-- Done Text Item -->
-                        <div :class="'text-capitalize d-flex align-items-center w-100 p-2 rounded-2 fw-medium me-3' + ' '+ (item.done ? 'bg-success-subtle text-decoration-line-through' : 'bg-warning-subtle')">
+                        <div :class="'text-capitalize d-flex align-items-center w-100 p-2 rounded-2 fw-medium me-3' + ' '+ (item.done === 'yes' ? 'bg-success-subtle text-decoration-line-through' : 'bg-warning-subtle')">
                             {{item.text}}
                         </div>
                         <!-- DONE BUTTON CONTAINER -->

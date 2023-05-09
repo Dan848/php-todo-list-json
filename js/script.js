@@ -23,7 +23,7 @@ createApp({
                 const addNewItem = {
                     newItem: {
                         text: this.addText,
-                        done: false
+                        done: "no"
                     }
                 };
                 axios.post(this.apiUrl, addNewItem, { headers : {"Content-Type": "multipart/form-data"}}).then((res)=> {
@@ -33,7 +33,12 @@ createApp({
             this.addText = "";
         },
         removeItem(index){
-            this.toDoList.splice(index, 1);
+            const taskIndex = {
+                removeIndex: `${index}`
+            };
+            axios.post(this.apiUrl, taskIndex, { headers : {"Content-Type": "multipart/form-data"}}).then((res)=> {
+                this.toDoList = res.data;
+            })
         },
         doneItem(index){
             const taskIndex = {
