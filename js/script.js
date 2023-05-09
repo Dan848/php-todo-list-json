@@ -14,18 +14,21 @@ createApp({
     methods: {
         readList() {
             axios.get(this.apiUrl).then((res) =>{
-                console.log(res.data)
                 this.toDoList = res.data;
             })
         },
         addItem(){
             //Ci assicura
             if (this.addText && this.addText.length > 1 ) {
-                const newItem = {
-                    text: this.addText,
-                    done: false
-                }
-                this.toDoList.push(newItem);
+                const addNewItem = {
+                    newItem: {
+                        text: this.addText,
+                        done: false
+                    }
+                };
+                axios.post(this.apiUrl, addNewItem, { headers : {"Content-Type": "multipart/form-data"}}).then((res)=> {
+                    this.toDoList = res.data;
+                })
             }
             this.addText = "";
         },
@@ -34,8 +37,8 @@ createApp({
         },
         doneItem(index){
             this.toDoList[index].done ?
-            this.toDoList[index].done = false :
-            this.toDoList[index].done = true
+            this.toDoList[index].done = "" :
+            this.toDoList[index].done = "1"
         }
     },
     mounted(){

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
@@ -59,10 +59,10 @@
                 <h3 v-show="toDoList.length <= 0" class="bg-danger text-center rounded-2 p-2 text-black">Empty</h3>
 
                 <!-- DONE LIST TITLE -->
-                <div v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === false)" class="w-100 d-flex justify-content-center align-items-center mb-0"><h2 class="text-white py-2 px-4 rounded-top-4">{{doneListTitle}}</h2></div>
+                <div v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === '')" class="w-100 d-flex justify-content-center align-items-center mb-0"><h2 class="text-white py-2 px-4 rounded-top-4">{{doneListTitle}}</h2></div>
 
                 <!-- DONE LIST START -->
-                <ul v-if="toDoList.length > 0 && !toDoList.every((item) => item.done === false)" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2 mt-0">
+                <ul v-show="toDoList.length > 0 && !toDoList.every((item) => item.done === '')" class="list-unstyled col-12 col-sm-10 col-md-8 rounded-4 py-1 px-2 mt-0">
                     <!-- DONE Item List -->
                     <li :class="'d-flex justify-content-between p-2 rounded-2 my-3' + ' '+ (item.done ? 'new-green' : 'd-none')" v-for="(item, index) in toDoList">
                         <!-- Done Text Item -->

@@ -1,10 +1,1 @@
-[
-    {
-        "text": "Inserisci",
-        "done": false
-    },
-    {
-        "text": "Qualcosa nella lista",
-        "done": false
-    }
-]
+[{"text":"Inserisci","done":""},{"text":"Qualcosa nella lista","done":""},{"text":"dada","done":""}]
